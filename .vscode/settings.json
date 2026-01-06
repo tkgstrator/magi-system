@@ -1,0 +1,31 @@
+{
+  "gitdoc.enabled": true,
+  "gitdoc.commitValidationLevel": "error",
+  "gitdoc.autoCommitDelay": 0,
+  "gitdoc.autoPush": "onCommit",
+  "gitdoc.ai.model": "gpt-4o",
+  "gitdoc.autoPull": "off",
+  "gitdoc.ai.enabled": true,
+  "gitdoc.ai.customInstructions": "Generate a commit message in English following the Conventional Commits specification and `commitlint` rules. Use the format `<type>(<scope>): <short description>` and choose `<type>` from `build`, `ci`, `docs`, `feat`, `fix`, `perf`, `chore`, `refactor`, `revert`, `format`, `test`. Limit `<short description>` to 72 characters. If `<short description>` starts with an English word, it must be in lowercase.",
+  "files.watcherExclude": {
+    "**/node_modules/**": true
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  }
+}

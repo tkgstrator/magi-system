@@ -1,0 +1,29 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "deploy",
+      "type": "shell",
+      "command": "act",
+      "args": [
+        "--job",
+        "deploy",
+        "--eventpath",
+        ".github/workflow_dispatch.json",
+        "--secret-file",
+        ".secrets",
+        "--platform",
+        "ubuntu-24.04=catthehacker/ubuntu:act-22.04"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      }
+    }
+  ]
+}

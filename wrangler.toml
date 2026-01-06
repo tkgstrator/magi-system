@@ -1,0 +1,23 @@
+name = "magi_system"
+compatibility_date = "2025-08-06"
+compatibility_flags = ["nodejs_compat_v2"]
+workers_dev = true
+main = "src/api/index.ts"
+
+[site]
+bucket = "dist"
+
+[observability.logs]
+enabled = true
+
+[triggers]
+crons = ['*/10 * * * *']
+
+[dev]
+ip = "0.0.0.0"
+port = 5173
+
+[[kv_namespaces]]
+binding = "CACHE"
+id = "9081db1d566347a1a8fe3d67ac89990e"
+preview_id = "0d97b1f9ce0a4c03ab9141eb2809143a"
