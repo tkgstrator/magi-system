@@ -1,7 +1,7 @@
 // MAGIコンポーネントのエクスポート
-export { ConfigBox } from "./ConfigBox";
-export { MagiQueryInput } from "./MagiQueryInput";
-export { MagiUnitCard } from "./MagiUnitCard";
+export { ConfigBox } from './ConfigBox'
+export { MagiQueryInput } from './MagiQueryInput'
+export { MagiUnitCard } from './MagiUnitCard'
 
 // 型のエクスポート
 export type {
@@ -10,8 +10,8 @@ export type {
   MagiStatus,
   MagiUnit,
   MagiUnitApiResponse,
-  MagiVote,
-} from "./types";
+  MagiVote
+} from './types'
 
 // ユーティリティのエクスポート
 export {
@@ -25,5 +25,5 @@ export {
   getStatusText,
   getVoteColor,
   getVoteText,
-  getVoteTextEnglish,
-} from "./utils";
+  getVoteTextEnglish
+} from './utils'

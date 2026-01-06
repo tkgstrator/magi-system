@@ -18,22 +18,43 @@
       "!types/routes.d.ts"
     ]
   },
-  "formatter": {
-    "enabled": true,
-    "indentStyle": "space",
-    "indentWidth": 2
-  },
   "linter": {
     "enabled": true,
     "rules": {
       "recommended": true,
-      "suspicious": {
-        "noUnknownAtRules": "off"
-      }
-    },
-    "domains": {
-      "next": "recommended",
-      "react": "recommended"
+      "correctness": {},
+      "a11y": {}
+    }
+  },
+  "formatter": {
+    "enabled": true,
+    "formatWithErrors": false,
+    "includes": ["**"],
+    "attributePosition": "auto",
+    "indentStyle": "space",
+    "indentWidth": 2,
+    "lineEnding": "lf",
+    "lineWidth": 80
+  },
+  "javascript": {
+    "formatter": {
+      "enabled": true,
+      "arrowParentheses": "always",
+      "bracketSameLine": false,
+      "bracketSpacing": true,
+      "jsxQuoteStyle": "single",
+      "quoteStyle": "single",
+      "quoteProperties": "asNeeded",
+      "semicolons": "asNeeded",
+      "indentStyle": "space",
+      "indentWidth": 2,
+      "lineWidth": 120,
+      "trailingCommas": "none"
+    }
+  },
+  "json": {
+    "formatter": {
+      "trailingCommas": "none"
     }
   },
   "assist": {
