@@ -1,36 +1,64 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# MAGI SYSTEM
 
-## Getting Started
+エヴァンゲリオンのMAGIシステムを模したAI意思決定システム。3つのAIユニット（MELCHIOR、BALTHASAR、CASPER）が質問に対して審議し、多数決で結論を出す。
 
-First, run the development server:
+## 技術スタック
+
+- **フレームワーク**: Next.js 16 (App Router)
+- **AI**: OpenAI API (gpt-4o-mini)
+- **キャッシュ**: Redis (Upstash推奨)
+- **スタイリング**: Tailwind CSS v4
+- **アニメーション**: Motion (Framer Motion)
+- **デプロイ**: Vercel
+
+## 環境変数
+
+| 変数名 | 必須 | 説明 |
+|--------|------|------|
+| `OPENAI_API_KEY` | ◯ | OpenAI APIキー |
+| `REDIS_URL` | - | Redis接続URL (Upstash等) |
+
+### 環境変数の設定方法
+
+**ローカル開発時:**
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
+cp .env.example .env.local
+# .env.local を編集して値を設定
+```
+
+**Vercelデプロイ時:**
+
+Vercelダッシュボードの Settings > Environment Variables から設定する。
+
+## キャッシュについて
+
+Redisを設定すると、同じ質問に対する回答が7日間キャッシュされる。
+
+- キャッシュヒット時はAPIコールをスキップしてコスト削減
+- `REDIS_URL`が未設定の場合はキャッシュなしで動作
+- [Upstash](https://upstash.com/)を使うとVercelとの相性が良い
+
+## ローカル開発
+
+```bash
+# 依存関係のインストール
+bun install
+
+# 開発サーバー起動
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+http://localhost:3000 でアクセス。
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Vercelへのデプロイ
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. GitHubリポジトリをVercelにインポート
+2. 環境変数を設定
+3. デプロイ
 
-## Learn More
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new)
 
-To learn more about Next.js, take a look at the following resources:
+## ライセンス
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+MIT
