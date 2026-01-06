@@ -12,7 +12,7 @@ on:
 jobs:
   deploy:
     name: Deploy to Vercel
-    if: github.event.pull_request.merged == true
+    if: github.event.pull_request.merged == true || github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-24.04
     steps:
       - name: Checkout
@@ -29,9 +29,9 @@ jobs:
         uses: actions/cache@v4
         with:
           path: |
-            ~/.bun/install/cache
-            bun.lockb
-          key: bun-${{ runner.os }}-${{ hashFiles('bun.lockb') }}
+            node_modules
+            bun.lock
+          key: bun-${{ runner.os }}-${{ hashFiles('bun.lock') }}
           restore-keys: |
             bun-${{ runner.os }}-
       - name: Install dependencies

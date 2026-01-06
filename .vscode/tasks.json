@@ -6,10 +6,9 @@
       "type": "shell",
       "command": "act",
       "args": [
+        "workflow_dispatch",
         "--job",
         "deploy",
-        "--eventpath",
-        ".github/workflow_dispatch.json",
         "--secret-file",
         ".secrets",
         "--platform",
