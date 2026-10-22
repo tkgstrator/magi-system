@@ -15,7 +15,7 @@
       "!build",
       "!src/app/globals.css",
       "!types/validator.ts",
-      "!types/routes.d.ts"
+      "!src/types/routes.d.ts"
     ]
   },
   "linter": {

@@ -34,9 +34,12 @@ jobs:
         uses: oven-sh/setup-bun@v1
         with:
           bun-version: latest
+      - name: Install
+        run: bun install --frozen-lockfile --ignore-scripts
       - name: Check
         run: |
-          bunx @biomejs/biome@2.0.0 check src
+          ./node_modules/.bin/biome --version
+          ./node_modules/.bin/biome check src __tests__
   test:
     name: Test
     runs-on: ubuntu-24.04
@@ -48,6 +51,8 @@ jobs:
         uses: oven-sh/setup-bun@v1
         with:
           bun-version: latest
+      - name: Install
+        run: bun install --frozen-lockfile --ignore-scripts
       - name: Test
         run: |
           bun test
@@ -72,7 +77,7 @@ jobs:
           restore-keys: |
             bun-${{ runner.os }}-
       - name: Install
-        run: bun install --ignore-scripts
+        run: bun install --frozen-lockfile --ignore-scripts
       - name: Build
         run: |
           bun run build
